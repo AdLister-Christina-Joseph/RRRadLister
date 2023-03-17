@@ -12,5 +12,6 @@
   <h1>Please log in to continue.</h1>
 </div>
 
+<%@ include file="/WEB-INF/partials/footer.jsp" %>
 </body>
 </html>

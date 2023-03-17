@@ -20,5 +20,7 @@
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
+
+    <%@ include file="/WEB-INF/partials/footer.jsp" %>
 </body>
 </html>

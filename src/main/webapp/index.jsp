@@ -11,5 +11,7 @@
     <div class="container">
         <h1>Welcome to the Adlister!</h1>
     </div>
+
+    <%@ include file="/WEB-INF/partials/footer.jsp" %>
 </body>
 </html>

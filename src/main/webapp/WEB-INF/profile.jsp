@@ -12,5 +12,6 @@
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     </div>
 
+    <%@ include file="/WEB-INF/partials/footer.jsp" %>
 </body>
 </html>
