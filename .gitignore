@@ -4,3 +4,4 @@ target/
 
 Config.java
 
+/src/main/webapp/WEB-INF/js/KEYS.js

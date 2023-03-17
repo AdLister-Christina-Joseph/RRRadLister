@@ -19,4 +19,10 @@ public class DaoFactory {
         return usersDao;
     }
 
+    public static Ads AdSearchDao() {
+        if (adsDao == null) {
+            adsDao = new MySQLAdsDao(config);
+        }
+        return adsDao;
+    }
 }
