@@ -11,4 +11,5 @@ public interface Users {
     Long insert(User user);
 
 
+    boolean isUnique(String username);
 }
