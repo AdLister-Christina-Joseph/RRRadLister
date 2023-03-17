@@ -7,12 +7,21 @@ import java.util.List;
 
 public class ListAdsDao implements Ads {
     private List<Ad> ads;
+    private List<Ad> adsByUser;
+
 
     public List<Ad> all() {
         if (ads == null) {
             ads = generateAds();
         }
         return ads;
+    }
+
+    public List<Ad> byUser(Long userId) {
+        if (adsByUser == null) {
+            adsByUser = generateAds();
+        }
+        return adsByUser;
     }
 
     public Long insert(Ad ad) {

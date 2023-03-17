@@ -6,11 +6,19 @@
             </button>
             <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/logout">Logout</a></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Create Listing</a>
+                        <a class="nav-link active" href="/login">Login</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/ads/create">Create Listing</a>
+                    </li>
+
                 </ul>
                 <form class="d-flex justify-content-center align-items-center input-group-sm " role="search">
                     <input class="form-control me-2" type="search" placeholder="Search listings">
