@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 
         if (user == null) {
             response.sendRedirect("/login");
-            return;
+            return null;
         }
 
         boolean validAttempt = Password.check(password, hash);
@@ -42,5 +42,6 @@ public class LoginServlet extends HttpServlet {
         } else {
             response.sendRedirect("/login");
         }
+        return null;
     }
 }

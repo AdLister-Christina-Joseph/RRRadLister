@@ -10,6 +10,8 @@ public interface Ads {
 
     List<Ad> byUser(Long userId);
 
+    List<Ad> byTitle(String title);
+
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
 }

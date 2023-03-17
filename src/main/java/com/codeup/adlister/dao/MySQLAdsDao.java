@@ -52,6 +52,24 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public List<Ad> byTitle(String title) {
+        String selectQuery = "SELECT * FROM ads WHERE title LIKE ?";
+        try {
+            DriverManager.registerDriver(new Driver());
+            Connection connection = DriverManager.getConnection(
+                    "mysql://studentdb.fulgentcorp.com/ymir_christina?allowPublicKeyRetrieval=true&useSSL=false",
+                    "ymir_christina",
+                    "PMHg3dEtM71wc3Q"
+            );
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(selectQuery);
+            return createAdsFromResults(rs);
+        } catch(SQLException e) {
+            throw new RuntimeException("Error connecting to database.", e);
+        }
+    }
+
 
     @Override
     public Long insert(Ad ad) {
