@@ -27,6 +27,11 @@ public class ListAdsDao implements Ads {
     }
 
     @Override
+    public List<Ad> byTitle(String title) {
+        return ads;
+    }
+
+    @Override
     public Ad individualAd(Long id) {
         return ad;
     }

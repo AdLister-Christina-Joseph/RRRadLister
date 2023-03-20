@@ -10,6 +10,8 @@ public interface Ads {
 
     List<Ad> byUser(Long userId);
 
+    List<Ad> byTitle(String title);
+
     Ad individualAd(Long id);
 
     int deleteAd(Long id);
