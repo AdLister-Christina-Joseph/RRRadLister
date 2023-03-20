@@ -32,10 +32,11 @@ public class ListAdsDao implements Ads {
 
     @Override
     public List<Ad> byTitle(String title) {
-        if (adsByTitle == null){
+        if (adsByTitle == null) {
             adsByTitle = generateAds();
         }
         return adsByTitle;
+    }
     public Ad individualAd(Long id) {
         return ad;
     }
