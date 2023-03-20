@@ -3,19 +3,23 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Viewing All The Ads" />
+        <jsp:param name="title" value="User's Profile" />
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
+    <h1>Welcome to ${user.username}'s page!</h1>
+</div>
 
-    <c:forEach var="ad" items="${ads}">
+<div class="container">
+    <h3>Here are all of ${user.username}'s ads:</h3>
+
+    <c:forEach var="adsByUser" items="${adsByUser}">
         <div class="col-md-6">
-            <a href="/individualAd?id=${ad.id}"><h2>${ad.title}</h2></a>
-            <p>${ad.description}</p>
+            <h4>${adsByUser.title}</h4>
+            <p>${adsByUser.description}</p>
         </div>
     </c:forEach>
 </div>

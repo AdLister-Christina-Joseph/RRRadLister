@@ -38,6 +38,18 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public User findByUserID(Long id) {
+        String query = "SELECT * FROM user WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            return extractUser(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by user ID", e);
+        }
+    }
+
     public boolean isUnique(String username) {
         String query = "SELECT username FROM user WHERE username = ?";
         try {

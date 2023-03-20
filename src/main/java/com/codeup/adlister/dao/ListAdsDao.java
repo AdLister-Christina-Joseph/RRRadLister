@@ -10,6 +10,8 @@ public class ListAdsDao implements Ads {
     private List<Ad> adsByUser;
     private List<Ad> adsByTitle;
 
+    private Ad ad;
+
 
     public List<Ad> all() {
         if (ads == null) {
@@ -31,6 +33,8 @@ public class ListAdsDao implements Ads {
             adsByTitle = generateAds();
         }
         return adsByTitle;
+    public Ad individualAd(Long id) {
+        return ad;
     }
 
     public Long insert(Ad ad) {
