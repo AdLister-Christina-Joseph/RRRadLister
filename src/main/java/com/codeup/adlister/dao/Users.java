@@ -10,6 +10,7 @@ public interface Users {
 
     Long insert(User user);
 
+    User findByUserID(Long id);
 
     boolean isUnique(String username);
 }
