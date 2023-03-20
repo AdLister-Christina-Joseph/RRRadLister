@@ -47,6 +47,18 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving ads by user.", e);
         }
     }
+@Override
+    public List<Ad> byTitle(String title) {
+        String selectQuery = "SELECT * FROM ads WHERE title LIKE ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(selectQuery);
+            stmt.setString(1, title);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch(SQLException e) {
+            throw new RuntimeException("Error connecting to database.", e);
+        }
+    }
 
     @Override
     public Ad individualAd(Long id) {
@@ -118,7 +130,8 @@ public class MySQLAdsDao implements Ads {
     }
 
 
-    private Ad extractAd(ResultSet rs) throws SQLException {
+    private static Ad extractAd(ResultSet rs) throws SQLException {
+
         return new Ad(
             rs.getLong("id"),
             rs.getLong("user_id"),
@@ -127,7 +140,7 @@ public class MySQLAdsDao implements Ads {
         );
     }
 
-    private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
+    private static List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
             ads.add(extractAd(rs));
