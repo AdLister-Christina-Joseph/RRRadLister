@@ -9,8 +9,13 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
   <h1>Search Results</h1>
-  <div class="container-fluid" name="result-container">
+  <div class="container-fluid">
+<h3>
+  Search results:
+</h3>
+    <div class="container-fluid" id="result-container">
 
+    </div>
   </div>
 </div>
 

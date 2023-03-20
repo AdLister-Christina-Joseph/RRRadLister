@@ -34,7 +34,6 @@ public class CreateAdServlet extends HttpServlet {
             System.out.println("Not logged in.");
             response.sendRedirect("/loginError");
             //or could just redirect to login page
-            return null;
         }
 
 
@@ -45,6 +44,5 @@ public class CreateAdServlet extends HttpServlet {
         );
         DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
-        return null;
     }
 }

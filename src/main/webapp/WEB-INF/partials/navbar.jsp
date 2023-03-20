@@ -20,7 +20,7 @@
                     </li>
 
                 </ul>
-                <form class="d-flex justify-content-center align-items-center input-group-sm " role="search">
+                <form class="d-flex justify-content-center align-items-center input-group-sm " role="search" method="post" action="/searchAds">
                     <input class="form-control me-2" type="search" placeholder="Search listings">
                     <button class="btn btn-outline-light" type="submit" name="searchAds"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>

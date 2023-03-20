@@ -37,13 +37,11 @@ public class RegisterServlet extends HttpServlet {
 
         if (inputHasErrors) {
             response.sendRedirect("/register");
-            return null;
         }
 
         // create and save a new user
         User user = new User(username, email, hash);
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");
-        return null;
     }
 }
