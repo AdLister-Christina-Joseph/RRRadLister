@@ -1,3 +1,6 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.codeup.adlister.models.Ad" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,16 +10,16 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div class="container">
-  <h1>Search Results</h1>
-  <div class="container-fluid">
-<h3>
-  Search results:
-</h3>
-    <div class="container-fluid" id="result-container">
 
-    </div>
-  </div>
+<div class="container">
+    <h1>Search Results:</h1>
+    <c:forEach var="adResults" items="${adResults}">
+        <div class="col-md-6">
+            <h2>${adResults.title}</h2>
+            <p>${adResults.description}</p>
+<%--            <p>${adResults.userId}</p>--%>
+        </div>
+    </c:forEach>
 </div>
 
 <%@ include file="/WEB-INF/partials/footer.jsp" %>
