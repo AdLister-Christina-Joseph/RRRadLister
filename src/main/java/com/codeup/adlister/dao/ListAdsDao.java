@@ -8,6 +8,7 @@ import java.util.List;
 public class ListAdsDao implements Ads {
     private List<Ad> ads;
     private List<Ad> adsByUser;
+    private List<Ad> adsByTitle;
 
     private Ad ad;
 
@@ -27,6 +28,11 @@ public class ListAdsDao implements Ads {
     }
 
     @Override
+    public List<Ad> byTitle(String title) {
+        if (adsByTitle == null){
+            adsByTitle = generateAds();
+        }
+        return adsByTitle;
     public Ad individualAd(Long id) {
         return ad;
     }

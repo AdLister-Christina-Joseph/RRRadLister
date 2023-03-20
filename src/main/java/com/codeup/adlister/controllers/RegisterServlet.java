@@ -37,7 +37,6 @@ public class RegisterServlet extends HttpServlet {
 
         if (inputHasErrors) {
             response.sendRedirect("/register");
-            return;
         }
 
         // create and save a new user
