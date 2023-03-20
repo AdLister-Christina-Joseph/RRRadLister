@@ -70,7 +70,7 @@ public class MySQLAdsDao implements Ads {
     public int deleteAd(Long id) {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("DELETE * FROM ads WHERE id = " + id);
+            stmt = connection.prepareStatement("DELETE FROM ads WHERE id = " + id);
             System.out.println(stmt);
             int rowsDeleted = stmt.executeUpdate();
             return rowsDeleted;
