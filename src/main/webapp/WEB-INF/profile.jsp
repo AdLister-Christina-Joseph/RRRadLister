@@ -18,7 +18,7 @@
 
         <c:forEach var="adsByUser" items="${adsByUser}">
             <div class="col-md-6">
-                <h2>${adsByUser.title}</h2>
+                <h2>${adsByUser.title} <a href="/ads/edit?id=${adsByUser.id}"><i class="fa-solid fa-pencil"></i></a>  <a href="/delete?id=${adsByUser.id}"><i class="fa-solid fa-circle-xmark"></i></a></h2>
                 <p>${adsByUser.description}</p>
             </div>
         </c:forEach>

@@ -67,6 +67,22 @@ public class MySQLAdsDao implements Ads {
 
 
     @Override
+    public int deleteAd(Long id) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("DELETE * FROM ads WHERE id = " + id);
+            System.out.println(stmt);
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted;
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting the ad.", e);
+        }
+
+    }
+
+
+    @Override
     public Long insert(Ad ad) {
         try {
             String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
@@ -82,6 +98,25 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
+
+
+    @Override
+    public Long edit(Ad ad) {
+        try {
+            String insertQuery = "UPDATE ads SET user_id = ?, title = ?, description = ? WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery);
+            stmt.setLong(1, ad.getUserId());
+            stmt.setString(2, ad.getTitle());
+            stmt.setString(3, ad.getDescription());
+            stmt.setLong(4, ad.getId());
+            System.out.println(stmt);
+            stmt.executeUpdate();
+            return ad.getId();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error editing the ad.", e);
+        }
+    }
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
