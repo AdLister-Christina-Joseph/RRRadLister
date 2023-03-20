@@ -2,8 +2,6 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 public interface Ads {
@@ -12,13 +10,14 @@ public interface Ads {
 
     List<Ad> byUser(Long userId);
 
-
     List<Ad> byTitle(String title);
 
     Ad individualAd(Long id);
 
+    int deleteAd(Long id);
 
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
 
+    Long edit(Ad ad);
 }

@@ -8,6 +8,9 @@ import java.util.List;
 public class ListAdsDao implements Ads {
     private List<Ad> ads;
     private List<Ad> adsByUser;
+
+    private int rowsDeleted;
+
     private List<Ad> adsByTitle;
 
     private Ad ad;
@@ -36,6 +39,20 @@ public class ListAdsDao implements Ads {
     public Ad individualAd(Long id) {
         return ad;
     }
+
+    @Override
+    public int deleteAd(Long id) {
+        return rowsDeleted;
+    }
+
+    public Long edit(Ad ad) {
+        // make sure we have ads
+        if (ads == null) {
+            ads = generateAds();
+        }
+        return ad.getId();
+    }
+
 
     public Long insert(Ad ad) {
         // make sure we have ads
