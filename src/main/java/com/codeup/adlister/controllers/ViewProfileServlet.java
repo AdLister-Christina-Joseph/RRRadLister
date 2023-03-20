@@ -18,8 +18,9 @@ public class ViewProfileServlet extends HttpServlet {
             return;
         }
         User user = (User) request.getSession().getAttribute("user");
+        String username = user.getUsername();
         Long userId = user.getId();
-        System.out.println(user.getId());
+        System.out.println(user.getUsername());
 
         request.setAttribute("adsByUser", DaoFactory.getAdsDao().byUser(userId));
 

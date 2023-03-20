@@ -20,6 +20,11 @@
     <p>${ad.description}</p>
 </div>
 
+<div class="col-md-6">
+    <a href="/user?id=${userID}"><h6>${user.username}</h6></a>
+
+</div>
+
 <%@ include file="/WEB-INF/partials/footer.jsp" %>
 </body>
 </html>

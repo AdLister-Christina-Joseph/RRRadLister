@@ -21,9 +21,16 @@ public class IndividualAdServlet extends HttpServlet {
         request.setAttribute("ad", DaoFactory.getAdsDao().individualAd(id));
 
         //now i need to get user data
-        /*User user = (User) request.getSession().getAttribute("user");
-        Long userId = user.getId();
-        System.out.println(user.getId());*/
+        User user = (User) request.getSession().getAttribute("user");
+        System.out.println(user.getUsername());
+
+        String username = user.getUsername();
+        Long userID = user.getId();
+        System.out.println(user.getId());
+
+        request.setAttribute("username", username);
+        request.setAttribute("userID", userID);
+
 
         request.getRequestDispatcher("/WEB-INF/ads/individualAd.jsp").forward(request, response);
     }
