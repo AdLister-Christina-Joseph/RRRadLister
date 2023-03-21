@@ -37,6 +37,7 @@ public class ListAdsDao implements Ads {
         }
         return adsByTitle;
     }
+
     public Ad individualAd(Long id) {
         return ad;
     }
