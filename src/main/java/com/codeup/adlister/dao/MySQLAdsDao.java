@@ -6,6 +6,7 @@ import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
@@ -105,7 +106,13 @@ public class MySQLAdsDao implements Ads {
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
-            return rs.getLong(1);
+            long adId =  rs.getLong(1);
+
+            for (Category category : ad.getCategories()) {
+                insertAdCategory(adId, category.getId());
+            }
+
+            return adId;
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
