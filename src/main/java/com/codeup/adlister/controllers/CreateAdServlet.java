@@ -10,11 +10,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
         //checking to see if someone is logged in
         //class example did this in the doPost he said do both bc people can try to figure out workarounds
@@ -22,13 +24,26 @@ public class CreateAdServlet extends HttpServlet {
             response.sendRedirect("/loginError");
             return;
         }
+
+        HttpSession session = request.getSession();
+        if (session.getAttribute("title") == null) {
+            request.getSession().setAttribute("title", "");
+        }
+        if (session.getAttribute("description") == null) {
+            request.getSession().setAttribute("description", "");
+        }
+
+
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        HttpSession session = request.getSession();
         User user = (User) request.getSession().getAttribute("user");
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
 
         if (user == null) {
             System.out.println("Not logged in.");
@@ -36,13 +51,31 @@ public class CreateAdServlet extends HttpServlet {
             //or could just redirect to login page
         }
 
+        boolean inputHasErrors = title.isEmpty()
+                || description.isEmpty();
 
-        Ad ad = new Ad(
-            user.getId(),
-            request.getParameter("title"),
-            request.getParameter("description")
-        );
-        DaoFactory.getAdsDao().insert(ad);
-        response.sendRedirect("/ads");
+        if (inputHasErrors) {
+
+            String tempTitle =  request.getParameter("title");
+            session.removeAttribute("title");
+            session.setAttribute("title", tempTitle);
+
+
+            String tempDescription =  request.getParameter("description");
+            session.removeAttribute("description");
+            session.setAttribute("description", tempDescription);
+
+            response.sendRedirect("/ads/create");
+
+        } else {
+
+            Ad ad = new Ad(
+                    user.getId(),
+                    request.getParameter("title"),
+                    request.getParameter("description")
+            );
+            DaoFactory.getAdsDao().insert(ad);
+            response.sendRedirect("/profile");
+        }
     }
 }
