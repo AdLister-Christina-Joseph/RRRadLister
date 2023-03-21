@@ -20,6 +20,13 @@
     </c:forEach>
 </div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <%@ include file="/WEB-INF/partials/footer.jsp" %>
 </body>
 </html>

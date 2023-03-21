@@ -8,7 +8,7 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
+    <div class="container w-50">
         <h1>Please Log In</h1>
         <form action="/login" method="POST">
             <div class="form-group">
@@ -22,10 +22,10 @@
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>
-    <div <%=session.getAttribute("loginError")%>>
+    <div class = "container w-50" <%=session.getAttribute("loginError")%>>
 
         <div class="alert alert-danger" role="alert">
-            Username and password do not match.
+            Username or password is incorrect.
         </div>
     </div>
 
