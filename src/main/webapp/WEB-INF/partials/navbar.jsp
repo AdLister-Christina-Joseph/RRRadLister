@@ -8,7 +8,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white text-center">
                 <div class="container-fluid text-white">
-                    <a class="navbar-brand" href="#"><i class="fa-solid fa-recycle"></i> RRRadLister</a>
+                    <a class="navbar-brand" href="/ads/index"><i class="fa-solid fa-recycle"></i> RRRadLister</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -46,7 +46,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white text-center">
             <div class="container-fluid text-white">
-                <a class="navbar-brand" href="#"><i class="fa-solid fa-recycle"></i> RRRadLister</a>
+                <a class="navbar-brand" href="/ads/index"><i class="fa-solid fa-recycle"></i> RRRadLister</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
