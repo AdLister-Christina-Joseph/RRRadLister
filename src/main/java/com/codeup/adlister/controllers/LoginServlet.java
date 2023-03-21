@@ -14,6 +14,9 @@ import java.io.IOException;
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String show = "hidden";
+        request.getSession().setAttribute("loginError", show);
+
         //checking to see if someone is logged in
         if (request.getSession().getAttribute("user") != null) {
             response.sendRedirect("/profile");
@@ -29,9 +32,11 @@ public class LoginServlet extends HttpServlet {
         String hash = user.getPassword();
 
 
-        if (user == null) {
+
+
+        /*if (user == null) {
             response.sendRedirect("/login");
-        }
+        }*/
 
         boolean validAttempt = Password.check(password, hash);
 
@@ -39,7 +44,10 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
         } else {
+            /*String show = " ";
+            request.getSession().setAttribute("loginError", show);*/
             response.sendRedirect("/login");
+
         }
     }
 }
