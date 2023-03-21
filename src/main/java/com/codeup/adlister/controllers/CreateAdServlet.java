@@ -33,6 +33,12 @@ public class CreateAdServlet extends HttpServlet {
             request.getSession().setAttribute("description", "");
         }
 
+        if (request.getSession().getAttribute("error") == null) {
+            String show = "hidden";
+            session.removeAttribute("error");
+            session.setAttribute("error", show);
+        }
+
 
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
@@ -55,6 +61,24 @@ public class CreateAdServlet extends HttpServlet {
                 || description.isEmpty();
 
         if (inputHasErrors) {
+            if (title.isEmpty()) {
+                String show = " ";
+                session.removeAttribute("error");
+                session.setAttribute("error", show);
+
+                String titleEmpty = "Please enter a title.";
+                session.removeAttribute("errorMsg");
+                session.setAttribute("errorMsg", titleEmpty);
+            }
+            if (description.isEmpty()) {
+                String show = " ";
+                session.removeAttribute("error");
+                session.setAttribute("error", show);
+
+                String descriptionEmpty = "Please enter a description.";
+                session.removeAttribute("errorMsg");
+                session.setAttribute("errorMsg", descriptionEmpty);
+            }
 
             String tempTitle =  request.getParameter("title");
             session.removeAttribute("title");
