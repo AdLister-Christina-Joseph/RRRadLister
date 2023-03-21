@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">
-    <form method="post" action="/profile">
+    <form method="post" action="/profile/edit">
     <h1>Welcome, ${sessionScope.user.username}!
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
@@ -31,18 +31,18 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="FormControlInput1" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="FormControlInput1"
+                        <input name="new-username" type="text" class="form-control" id="FormControlInput1"
                                placeholder="${sessionScope.user.username}">
                     </div>
                     <div class="mb-3">
                         <label for="FormControlInput2" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="FormControlInput2"
+                        <input name="new-email" type="email" class="form-control" id="FormControlInput2"
                                placeholder="${sessionScope.user.email}">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
                 </div>
             </div>
         </div>
