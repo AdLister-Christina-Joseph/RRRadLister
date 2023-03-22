@@ -110,6 +110,36 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
+    @Override
+    public void insertCategory(long adId, long categoryId) {
+        /* TODO: FIx this
+        try {
+            String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, ad.getUserId());
+            stmt.setString(2, ad.getTitle());
+            stmt.setString(3, ad.getDescription());
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+            return rs.getLong(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
+        }*/
+    }
+
+    public long getCategoryId(String category) {
+        /* TODO: Fix this
+        String selectQuery = "SELECT * FROM ads WHERE title LIKE ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(selectQuery);
+            stmt.setString(1, title);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch(SQLException e) {
+            throw new RuntimeException("Error connecting to database.", e);
+        }*/
+    }
 
 
     @Override

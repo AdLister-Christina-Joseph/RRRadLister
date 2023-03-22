@@ -20,4 +20,8 @@ public interface Ads {
     Long insert(Ad ad);
 
     Long edit(Ad ad);
+
+    void insertCategory(long adId, long categoryId);
+
+    long getCategoryId(String category);
 }

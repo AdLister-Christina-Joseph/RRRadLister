@@ -3,6 +3,7 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
+import sun.util.resources.ext.CalendarData_ar;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -50,6 +51,7 @@ public class CreateAdServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         String title = request.getParameter("title");
         String description = request.getParameter("description");
+        String category = request.getParameter("category");
 
         if (user == null) {
             System.out.println("Not logged in.");
@@ -98,7 +100,12 @@ public class CreateAdServlet extends HttpServlet {
                     request.getParameter("title"),
                     request.getParameter("description")
             );
-            DaoFactory.getAdsDao().insert(ad);
+            long adId = DaoFactory.getAdsDao().insert(ad);
+            long categoryId = DaoFactory.getAdsDao().getCategoryId(category);
+            DaoFactory.getAdsDao().insertCategory(adId, categoryId);
+
+            //SELECT id from category where name = ? "
+            //INSERT INTO ads_categoriesf (ad_id, category_id) VALUES (?, ?)
             response.sendRedirect("/profile");
         }
     }

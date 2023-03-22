@@ -55,6 +55,11 @@ public class ListAdsDao implements Ads {
         return ad.getId();
     }
 
+    @Override
+    public void insertCategory(long adId, long categoryId) {
+
+    }
+
 
     public Long insert(Ad ad) {
         // make sure we have ads

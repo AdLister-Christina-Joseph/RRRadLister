@@ -51,8 +51,6 @@ public class EditAdServlet extends HttpServlet {
         }
 
 
-
-
         request.getRequestDispatcher("/WEB-INF/ads/edit.jsp")
                 .forward(request, response);
     }
