@@ -14,27 +14,16 @@ import java.io.IOException;
 @WebServlet(name = "controllers.DeleteServlet", urlPatterns = "/delete")
 public class DeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String adIDString = request.getParameter("id");
         Long id = Long.parseLong(adIDString);
-
         request.setAttribute("ad", DaoFactory.getAdsDao().individualAd(id));
-
-
         request.getRequestDispatcher("/WEB-INF/delete.jsp").forward(request, response);
     }
-
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String idString = request.getParameter("id");
         Long id = Long.parseLong(idString);
         DaoFactory.getAdsDao().deleteAd(id);
-
         response.sendRedirect("/profile");
-
-
-
     }
-
 }

@@ -15,5 +15,4 @@ public interface Users {
     boolean isUnique(String username);
 
     void updateUser(User user, String newUsername, String newEmail);
-//    User updateUser(User user);
 }

@@ -4,7 +4,6 @@ import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.dao.MySQLUsersDao;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.api.Session;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +25,6 @@ public class UpdateUserProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         try {
-
             request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
@@ -44,7 +42,4 @@ public class UpdateUserProfileServlet extends HttpServlet {
         request.getSession().setAttribute("user", user);
         response.sendRedirect("/profile");
     }
-
-
 }
-

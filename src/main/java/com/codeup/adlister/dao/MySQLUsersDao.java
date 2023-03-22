@@ -3,7 +3,6 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.controllers.UpdateUserProfileServlet;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
-
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {
@@ -21,7 +20,6 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
-
 
     public User findByUsername(String username) {
         String query = "SELECT * FROM user WHERE username = ? LIMIT 1";
@@ -61,7 +59,6 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-
     @Override
     public Long insert(User user) {
         String query = "INSERT INTO user(username, email, password) VALUES (?, ?, ?)";
@@ -70,9 +67,6 @@ public class MySQLUsersDao implements Users {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getPassword());
-            //class example for number 1
-            //String hashedPassword = Password.hash(user.getPassword());
-            //stmt.setString(3, user.hashedPassword());
             System.out.println(user.getUsername());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
