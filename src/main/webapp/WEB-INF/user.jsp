@@ -10,19 +10,32 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Welcome to ${user.username}'s page!</h1>
+    <h1></h1>
 </div>
 
-<div class="container">
-    <h3>Here are all of ${user.username}'s ads:</h3>
 
-    <c:forEach var="adsByUser" items="${adsByUser}">
-        <div class="col-md-6">
-            <h4>${adsByUser.title}</h4>
-            <p>${adsByUser.description}</p>
-        </div>
-    </c:forEach>
+
+<div class="card mx-auto bg-dark">
+    <div class="card-header">
+        <h2>Welcome to ${user.username}'s page!</h2>
+        <h3>All of ${user.username}'s ads:</h3>
+    </div>
+    <ul class="list-group list-group-flush bg-dark">
+
+        <c:forEach var="adsByUser" items="${adsByUser}">
+            <li class="list-group-item bg-dark">
+                <a href="/individualAd?id=${adsByUser.id}"><h6><i class="fa-solid fa-recycle"></i>  ${adsByUser.title}</h6></a>
+
+        </li>
+        </c:forEach>
+
+    </ul>
 </div>
+
+
+
+
+
 
 <%@ include file="/WEB-INF/partials/footer.jsp" %>
 </body>

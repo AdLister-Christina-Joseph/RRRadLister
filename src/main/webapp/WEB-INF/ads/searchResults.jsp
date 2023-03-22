@@ -11,15 +11,20 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<div class="container">
-    <h1>Search Results:</h1>
-    <c:forEach var="adResults" items="${adResults}">
-        <div class="col-md-6">
-            <h2>${adResults.title}</h2>
-            <p>${adResults.description}</p>
-<%--            <p>${adResults.userId}</p>--%>
-        </div>
-    </c:forEach>
+<div class="card mx-auto bg-dark">
+    <div class="card-header">
+        <h2>Search Results:</h2>
+    </div>
+    <ul class="list-group list-group-flush bg-dark">
+
+        <c:forEach var="adResults" items="${adResults}">
+            <li class="list-group-item bg-dark">
+
+                <a href="/individualAd?id=${adResults.id}"><h6><i class="fa-solid fa-recycle"></i>  ${adResults.title}</h6></a>
+            </li>
+        </c:forEach>
+
+    </ul>
 </div>
 
 <%@ include file="/WEB-INF/partials/footer.jsp" %>

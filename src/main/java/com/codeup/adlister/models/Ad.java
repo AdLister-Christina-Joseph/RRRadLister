@@ -6,6 +6,8 @@ public class Ad {
     private String title;
     private String description;
 
+
+
     @Override
     public String toString() {
         return "Ad{" +

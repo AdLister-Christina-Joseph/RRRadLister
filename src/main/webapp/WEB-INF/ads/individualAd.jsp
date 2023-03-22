@@ -15,15 +15,15 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<div class="col-md-6">
-    <h2>${ad.title}</h2>
-    <p>${ad.description}</p>
+<div class="card mx-auto">
+    <div class="card-body bg-dark">
+        <h4 class="card-title">${ad.title}</h4>
+        <h6 class="card-text">${ad.description}</h6>
+        <br>
+        <p class="card-link" style="text-align:left;" style="font-size: 5px;">Post by user: <a href="/user?id=${ad.userId}" class="card-link" style="color:white;">${username}</a></p>
+    </div>
 </div>
 
-<div class="col-md-6">
-    <a href="/user?id=${ad.userId}"><h6>${username}</h6></a>
-
-</div>
 
 <%@ include file="/WEB-INF/partials/footer.jsp" %>
 </body>

@@ -11,17 +11,26 @@
 
 
 <div class="container">
-
-    <div class="col-md-6">
-      <h3>${user.username}, are you sure you would like to remove this ad?</h3>
-
-      <h4>${ad.title}</h4>
-      <p>${ad.description}</p>
+<br>
+    <div class="card mx-auto">
+        <div class="card-body bg-dark">
+            <h2 class="card-title">${user.username}, are you sure you would like to remove this ad?</h2>
+            <br>
+            <h4 class="card-title">${ad.title}</h4>
+            <h6 class="card-text">${ad.description}</h6>
+            <br>
+            <p class="card-link" style="text-align:right;">
+                <div class="d-flex flex-row">
+                <a href="/profile"><button type="button" class="btn btn-secondary" style="margin: 10px">Cancel</button></a> <form action="/delete?id=${ad.id}" method="POST"><input type="submit" class="btn btn-success" value="Delete" style="margin: 10px"></form>
+        </div>
+            </p>
+        </div>
     </div>
 
-    <a href="/profile"><button type="button" class="btn btn-secondary">Cancel</button></a> <form action="/delete?id=${ad.id}" method="POST">
-        <input type="submit" class="btn btn-success" value="Delete">
-    </form>
+
+
+
+
 
 
 

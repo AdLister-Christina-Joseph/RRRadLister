@@ -38,7 +38,6 @@ public class UpdateUserProfileServlet extends HttpServlet {
         String newUsername = request.getParameter("new-username");
         String newEmail = request.getParameter("new-email");
         User user = (User) request.getSession().getAttribute("user");
-        System.out.println("LOOK HERE" + user);
         DaoFactory.getUsersDao().updateUser(user, newUsername, newEmail);
         user.setUsername(newUsername);
         user.setEmail(newEmail);

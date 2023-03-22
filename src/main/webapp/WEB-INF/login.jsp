@@ -8,6 +8,7 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <br>
     <div class="container w-50">
         <h1>Please Log In</h1>
         <form action="/login" method="POST">
@@ -19,12 +20,13 @@
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password" value="passwordz">
             </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
-        </form>
-    </div>
-    <div class = "container w-50" <%=session.getAttribute("loginError")%>>
+            <input type="submit" class="btn btn-success btn-block mt-2" value="Log In">    <a href="/register" style="color:white;"> Create an Account</a>
 
-        <div class="alert alert-danger" role="alert">
+        </form>
+
+    <div class = "container" <%=session.getAttribute("loginError")%>>
+
+        <div class="alert alert-danger w-100" role="alert">
             Username or password is incorrect.
         </div>
     </div>

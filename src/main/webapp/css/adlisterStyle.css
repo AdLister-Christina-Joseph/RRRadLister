@@ -22,7 +22,31 @@ body {
     margin: 100px;
 }
 
-/*
-buttonSubmit {
-    margin: 50px;
-}*/
+h1 {text-align: center;}
+
+p {text-align: center;}
+
+.card {
+
+    width: 85%;
+    opacity: .8;
+    color: white;
+}
+
+.list-group{
+    color: white;
+}
+
+.list-group-item {
+    color: white;
+}
+
+
+.card a:link {
+    color: white;
+}
+
+.card a:visited {
+    color: green;
+}
+
