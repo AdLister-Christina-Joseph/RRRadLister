@@ -30,11 +30,24 @@
                         <label for="FormControlInput2" class="form-label">Email</label>
                         <textarea name="new-email" type="email" class="form-control" id="FormControlInput2">${sessionScope.user.email}</textarea>
                     </div>
+                    <div class="mb-3">
+                        <label for="FormControlInput3" class="form-label">New Password</label>
+                        <textarea name="new-password" type="password" class="form-control" id="FormControlInput3" placeholder="Enter New Password"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="FormControlInput4" class="form-label">Confirm Password</label>
+                        <textarea name="confirm-new-password" type="password" class="form-control" id="FormControlInput4" placeholder="Confirm New Password"></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Save</button>
                 </div>
+            </div>
+        </div>
+        <div class="container w-75" <%=session.getAttribute("error")%>>
+            <div class="alert alert-danger" role="alert">
+                <%=session.getAttribute("errorMsg")%>
             </div>
         </div>
     </div>

@@ -16,6 +16,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Set;
 
+import static com.codeup.adlister.util.Password.hash;
+
 @WebServlet(name = "controllers/UpdateUserProfileServlet", urlPatterns = "/profile/edit")
 public class UpdateUserProfileServlet extends HttpServlet {
 
@@ -23,23 +25,41 @@ public class UpdateUserProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+
+        if (session.getAttribute("confirm_password") == null) {
+            request.getSession().setAttribute("confirm_password", "");
+        }
 
         try {
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
         String newUsername = request.getParameter("new-username");
         String newEmail = request.getParameter("new-email");
-        User user = (User) request.getSession().getAttribute("user");
-        DaoFactory.getUsersDao().updateUser(user, newUsername, newEmail);
-        user.setUsername(newUsername);
-        user.setEmail(newEmail);
-        request.getSession().setAttribute("user", user);
-        response.sendRedirect("/profile");
+        String newPassword = request.getParameter("new-password");
+        String passwordConfirmation = request.getParameter("confirm-new-password");
+        String hash = hash(newPassword);
+
+        boolean inputHasErrors = (!newPassword.equals(passwordConfirmation));
+
+            User user = (User) request.getSession().getAttribute("user");
+            DaoFactory.getUsersDao().updateUser(user, newUsername, newEmail, hash);
+            user.setUsername(newUsername);
+            user.setEmail(newEmail);
+            if (newPassword.equals(passwordConfirmation)) {
+                user.setPassword(newPassword);
+            }
+
+
+            request.getSession().setAttribute("user", user);
+            response.sendRedirect("/profile");
+        }
     }
-}
