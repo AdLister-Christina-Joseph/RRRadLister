@@ -14,7 +14,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
+<br>
 <div class="card mx-auto">
     <div class="card-body bg-dark">
         <h4 class="card-title">${ad.title}</h4>

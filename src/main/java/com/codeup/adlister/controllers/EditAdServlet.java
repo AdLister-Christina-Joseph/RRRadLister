@@ -18,11 +18,11 @@ public class EditAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //checking to see if someone is logged in
-        //class example did this in the doPost he said do both bc people can try to figure out workarounds
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/loginError");
             return;
         }
+
         String adIDString = request.getParameter("id");
         Long id = Long.parseLong(adIDString);
 
@@ -117,6 +117,18 @@ public class EditAdServlet extends HttpServlet {
             response.sendRedirect("/ads/edit?id=" + id);
 
         } else {
+
+            String show = "hidden";
+            session.removeAttribute("error");
+            session.setAttribute("error", show);
+
+            session.removeAttribute("title");
+            String finalTitle = request.getParameter("title");
+            request.getSession().setAttribute("title", finalTitle);
+
+            session.removeAttribute("description");
+            request.getSession().setAttribute("description", description);
+
 
             Ad ad = new Ad(
                     id,

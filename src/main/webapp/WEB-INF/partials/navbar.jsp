@@ -21,11 +21,11 @@
                                 <a class="nav-link active" href="/ads/create">Create Listing</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="/ads/index">All Ads</a>
+                                <a class="nav-link active" href="/ads/index">All Ad Listings</a>
                             </li>
-                            <li class="nav-item">
+                            <%--<li class="nav-item">
                                 <a class="nav-link active" href="/ads/byCat">Ads By Category</a>
-                            </li>
+                            </li>--%>
                             <li class="nav-item">
                                 <a class="nav-link active" href="/logout">Logout</a>
                             </li>
@@ -59,11 +59,11 @@
                             <a class="nav-link active" href="/register">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/ads/index">All Ads</a>
+                            <a class="nav-link active" href="/ads/index">All Ad Listings</a>
                         </li>
-                        <li class="nav-item">
+                        <%--<li class="nav-item">
                             <a class="nav-link active" href="/ads/byCat">Ads By Category</a>
-                        </li>
+                        </li>--%>
 
 
                     </ul>

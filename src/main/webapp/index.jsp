@@ -8,7 +8,7 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
+<br>
 <%--    <div class="card mx-auto" style="width: 85%;">--%>
 <%--        <div class="card-header">--%>
             <h1>Welcome to RRRadlister!</h1>
