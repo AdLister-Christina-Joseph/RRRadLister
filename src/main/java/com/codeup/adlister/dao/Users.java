@@ -13,4 +13,7 @@ public interface Users {
     User findByUserID(Long id);
 
     boolean isUnique(String username);
+
+    void updateUser(User user, String newUsername, String newEmail);
+//    User updateUser(User user);
 }

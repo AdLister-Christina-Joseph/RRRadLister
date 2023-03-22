@@ -1,16 +1,13 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.controllers.UpdateUserProfileServlet;
 import com.codeup.adlister.models.User;
-import com.codeup.adlister.util.Password;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MySQLUsersDao implements Users {
-    private Connection connection;
+    private static Connection connection;
 
     public MySQLUsersDao(Config config) {
         try {
@@ -26,7 +23,6 @@ public class MySQLUsersDao implements Users {
     }
 
 
-    @Override
     public User findByUsername(String username) {
         String query = "SELECT * FROM user WHERE username = ? LIMIT 1";
         try {
@@ -66,7 +62,6 @@ public class MySQLUsersDao implements Users {
     }
 
 
-
     @Override
     public Long insert(User user) {
         String query = "INSERT INTO user(username, email, password) VALUES (?, ?, ?)";
@@ -88,7 +83,7 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-    private User extractUser(ResultSet rs) throws SQLException {
+    private static User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
             return null;
         }
@@ -99,5 +94,17 @@ public class MySQLUsersDao implements Users {
             rs.getString("password")
         );
     }
-
+    @Override
+    public void updateUser(User user, String newUsername, String newEmail) {
+        String query = "UPDATE user SET username = ?, email = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, String.valueOf(newUsername));
+            stmt.setString(2, String.valueOf(newEmail));
+            stmt.setLong(3, user.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user", e);
+        }
+    }
 }
