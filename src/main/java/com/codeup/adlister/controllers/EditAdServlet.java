@@ -125,7 +125,7 @@ public class EditAdServlet extends HttpServlet {
                     description
             );
             DaoFactory.getAdsDao().edit(ad);
-            response.sendRedirect("/profile");
+            response.sendRedirect(request.getParameter("from"));
         }
 
 

@@ -31,5 +31,6 @@
 
 
     <%@ include file="/WEB-INF/partials/footer.jsp" %>
+    <input type="hidden" name="from" value="${param.from}">
 </body>
 </html>
