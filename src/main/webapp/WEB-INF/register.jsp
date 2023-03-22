@@ -34,6 +34,13 @@
         </form>
     </div>
 
+<div class="container" <%=session.getAttribute("errorR")%>>
+
+    <div class="alert alert-danger w-100" role="alert">
+        <%=session.getAttribute("msgR")%>
+    </div>
+</div>
+
     <%@ include file="/WEB-INF/partials/footer.jsp" %>
 
 </body>

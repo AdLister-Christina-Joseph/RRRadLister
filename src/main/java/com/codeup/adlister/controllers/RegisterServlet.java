@@ -30,6 +30,12 @@ public class RegisterServlet extends HttpServlet {
             request.getSession().setAttribute("confirm_password","");
         }
 
+        if (request.getSession().getAttribute("errorR") == null) {
+            String show = "hidden";
+            session.removeAttribute("errorR");
+            session.setAttribute("errorR", show);
+        }
+
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
@@ -48,7 +54,42 @@ public class RegisterServlet extends HttpServlet {
             || password.isEmpty()
             || (! password.equals(passwordConfirmation));
 
+
+
         if (inputHasErrors) {
+            if (DaoFactory.getUsersDao().isUnique(username)) {
+                String show = " ";
+                session.removeAttribute("errorR");
+                session.setAttribute("errorR", show);
+
+                String titleEmpty = "Please enter a unique username.";
+                session.removeAttribute("msgR");
+                session.setAttribute("msgR", titleEmpty);
+
+            }
+
+            if (username.isEmpty()) {
+                String show = " ";
+                session.removeAttribute("errorR");
+                session.setAttribute("errorR", show);
+
+                String titleEmpty = "Please enter a username.";
+                session.removeAttribute("msgR");
+                session.setAttribute("msgR", titleEmpty);
+            }
+            if (email.isEmpty()) {
+                String show = " ";
+                session.removeAttribute("errorR");
+                session.setAttribute("errorR", show);
+
+                String descriptionEmpty = "Please enter an email.";
+                session.removeAttribute("msgR");
+                session.setAttribute("msgR", descriptionEmpty);
+            }
+
+
+
+
 
             String tempUsername =  request.getParameter("username");
             session.removeAttribute("username");
