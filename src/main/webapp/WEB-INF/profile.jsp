@@ -31,13 +31,11 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="FormControlInput1" class="form-label">Username</label>
-                        <input name="new-username" type="text" class="form-control" id="FormControlInput1"
-                               placeholder="${sessionScope.user.username}">
+                        <textarea name="new-username" type="text" class="form-control" id="FormControlInput1">${sessionScope.user.username}</textarea>
                     </div>
                     <div class="mb-3">
                         <label for="FormControlInput2" class="form-label">Email</label>
-                        <input name="new-email" type="email" class="form-control" id="FormControlInput2"
-                               placeholder="${sessionScope.user.email}">
+                        <textarea name="new-email" type="email" class="form-control" id="FormControlInput2">${sessionScope.user.email}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
