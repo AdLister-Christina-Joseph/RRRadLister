@@ -1,6 +1,7 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
@@ -20,13 +21,13 @@ public class IndividualAdServlet extends HttpServlet {
 
         request.setAttribute("ad", DaoFactory.getAdsDao().individualAd(id));
 
+        Ad ad = DaoFactory.getAdsDao().individualAd(id);
+        Long userID = ad.getUserId();
+
         //now i need to get user data
-        User user = (User) request.getSession().getAttribute("user");
-        System.out.println(user.getUsername());
+        User user = (User) DaoFactory.getUsersDao().findByUserID(userID);
 
         String username = user.getUsername();
-        Long userID = user.getId();
-        System.out.println(user.getId());
 
         request.setAttribute("username", username);
         request.setAttribute("userID", userID);

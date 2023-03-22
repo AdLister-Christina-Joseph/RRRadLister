@@ -21,7 +21,7 @@
 </div>
 
 <div class="col-md-6">
-    <a href="/user?id=${userID}"><h6>${user.username}</h6></a>
+    <a href="/user?id=${ad.userId}"><h6>${username}</h6></a>
 
 </div>
 
