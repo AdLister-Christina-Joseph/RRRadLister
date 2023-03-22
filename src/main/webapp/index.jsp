@@ -3,15 +3,20 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Welcome to my site!" />
+        <jsp:param name="title" value="Welcome to my site!"/>
     </jsp:include>
 </head>
 <body>
+<<<<<<< HEAD
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <br>
+=======
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+
+>>>>>>> 5d7526398ffa097bc9c30d3f719982edcea48596
 <%--    <div class="card mx-auto" style="width: 85%;">--%>
 <%--        <div class="card-header">--%>
-            <h1>Welcome to RRRadlister!</h1>
+<h1>Welcome to RRRadlister!</h1>
 <%--        </div>--%>
 <%--        <ul class="list-group list-group-flush">--%>
 
@@ -19,14 +24,13 @@
 <%--
                 <img src="/imgs/recycle.png" alt="recycle" width="75%" height="75%">
 --%>
-                <p>Saving the environment one recycled item at a time!</p>
+<p>Saving the environment one recycled item at a time!</p>
 <%--            </li>--%>
 
 
+</ul>
+</div>
 
-        </ul>
-    </div>
-
-    <%@ include file="/WEB-INF/partials/footer.jsp" %>
+<%@ include file="/WEB-INF/partials/footer.jsp" %>
 </body>
 </html>

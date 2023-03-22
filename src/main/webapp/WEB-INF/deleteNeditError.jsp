@@ -2,11 +2,11 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Error!" />
+        <jsp:param name="title" value="Error!"/>
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">
     <h1>Error editing or deleting this ad.</h1>

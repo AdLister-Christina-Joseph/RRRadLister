@@ -1,18 +1,14 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListAdsDao implements Ads {
     private List<Ad> ads;
     private List<Ad> adsByUser;
-
     private int rowsDeleted;
-
     private List<Ad> adsByTitle;
-
     private Ad ad;
 
 
@@ -54,7 +50,6 @@ public class ListAdsDao implements Ads {
         }
         return ad.getId();
     }
-
 
     public Long insert(Ad ad) {
         // make sure we have ads

@@ -3,7 +3,6 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
 import com.codeup.adlister.util.Password;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,14 +14,10 @@ import java.io.IOException;
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         if (request.getSession().getAttribute("loginError") == null) {
             String show = "hidden";
             request.getSession().setAttribute("loginError", show);
         }
-
-
 
         //checking to see if someone is logged in
         if (request.getSession().getAttribute("user") != null) {
@@ -40,9 +35,7 @@ public class LoginServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
         String hash = user.getPassword();
 
-
         boolean validAttempt = Password.check(password, hash);
-
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
@@ -51,7 +44,6 @@ public class LoginServlet extends HttpServlet {
             session.removeAttribute("loginError");
             session.setAttribute("loginError", show);
             response.sendRedirect("/login");
-
         }
     }
 }
