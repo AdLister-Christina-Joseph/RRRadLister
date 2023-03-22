@@ -13,13 +13,10 @@
     </jsp:include>
 </head>
 <body>
-<<<<<<< HEAD
+
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <br>
-=======
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
->>>>>>> 5d7526398ffa097bc9c30d3f719982edcea48596
 <div class="card mx-auto">
     <div class="card-body bg-dark">
         <h4 class="card-title">${ad.title}</h4>
