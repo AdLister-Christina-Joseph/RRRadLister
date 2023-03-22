@@ -10,7 +10,8 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
+<br>
+<br>
 <div class="card mx-auto bg-dark">
     <div class="card-header">
         <h2>Search Results:</h2>
