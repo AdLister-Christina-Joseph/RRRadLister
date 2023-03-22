@@ -51,7 +51,7 @@ public class MySQLAdsDao implements Ads {
         String selectQuery = "SELECT * FROM ads WHERE title LIKE ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(selectQuery);
-            stmt.setString(1, title);
+            stmt.setString(1, "%"+title+"%");
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch(SQLException e) {
