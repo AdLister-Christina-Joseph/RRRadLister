@@ -6,7 +6,6 @@ import com.codeup.adlister.dao.MySQLAdsDao;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.util.Password;
 import com.mysql.cj.jdbc.Driver;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import static javax.servlet.jsp.jstl.core.Config.*;
 
 @WebServlet("/searchAds")
@@ -37,13 +35,5 @@ public class SearchAdsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
     }
-
-
 }
-
-//
-//public String getIsEmpty(){
-//        return"Empty String";
-//        }

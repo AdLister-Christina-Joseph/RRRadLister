@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">
-    <form method="post" action="/profile/edit">
+<form method="post" action="/profile/edit">
 
 <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -30,6 +30,14 @@
                         <label for="FormControlInput2" class="form-label">Email</label>
                         <textarea name="new-email" type="email" class="form-control" id="FormControlInput2">${sessionScope.user.email}</textarea>
                     </div>
+                    <div class="mb-3">
+                        <label for="FormControlInput3" class="form-label">New Password</label>
+                        <textarea name="new-password" type="password" class="form-control" id="FormControlInput3" placeholder="Enter New Password"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="FormControlInput4" class="form-label">Confirm Password</label>
+                        <textarea name="confirm-new-password" type="password" class="form-control" id="FormControlInput4" placeholder="Confirm New Password"></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -37,15 +45,13 @@
                 </div>
             </div>
         </div>
+        <div class="container w-75" <%=session.getAttribute("error")%>>
+            <div class="alert alert-danger" role="alert">
+                <%=session.getAttribute("errorMsg")%>
+            </div>
+        </div>
     </div>
 </form>
-
-
-
-
-
-
-
 <br>
     <div class="card mx-auto bg-dark">
         <div class="card-header">
@@ -60,32 +66,22 @@
             <h2>Here are all your ads:</h2>
         </div>
         <ul class="list-group list-group-flush bg-dark">
-
-
             <c:forEach var="adsByUser" items="${adsByUser}">
                 <li class="list-group-item bg-dark" style="text-align:left;">
-
                     <p><a href="/ads/edit?id=${adsByUser.id}"><i class="fa-solid fa-pencil"></i></a> <a
                             href="/delete?id=${adsByUser.id}"><i class="fa-solid fa-circle-xmark"></i></a></p>
-
                     <h2><i class="fa-solid fa-recycle"></i> ${adsByUser.title}</h2>
                     <p style="text-align:left;">${adsByUser.description}</p>
-
                 </li>
             </c:forEach>
-
         </ul>
     </div>
-
     <br>
     <br>
     <br>
     <br>
     <br>
     <br>
-
-
-
 <%@ include file="/WEB-INF/partials/footer.jsp" %>
 </body>
 </html>

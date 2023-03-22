@@ -3,7 +3,6 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +16,6 @@ import java.io.IOException;
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         //checking to see if someone is logged in
         //class example did this in the doPost he said do both bc people can try to figure out workarounds
         if (request.getSession().getAttribute("user") == null) {
@@ -29,6 +27,7 @@ public class CreateAdServlet extends HttpServlet {
         if (session.getAttribute("title") == null) {
             request.getSession().setAttribute("title", "");
         }
+
         if (session.getAttribute("description") == null) {
             request.getSession().setAttribute("description", "");
         }
@@ -39,13 +38,11 @@ public class CreateAdServlet extends HttpServlet {
             session.setAttribute("error", show);
         }
 
-
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
-            .forward(request, response);
+                .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         HttpSession session = request.getSession();
         User user = (User) request.getSession().getAttribute("user");
         String title = request.getParameter("title");
@@ -80,19 +77,16 @@ public class CreateAdServlet extends HttpServlet {
                 session.setAttribute("errorMsg", descriptionEmpty);
             }
 
-            String tempTitle =  request.getParameter("title");
+            String tempTitle = request.getParameter("title");
             session.removeAttribute("title");
             session.setAttribute("title", tempTitle);
 
-
-            String tempDescription =  request.getParameter("description");
+            String tempDescription = request.getParameter("description");
             session.removeAttribute("description");
             session.setAttribute("description", tempDescription);
 
             response.sendRedirect("/ads/create");
-
         } else {
-
             Ad ad = new Ad(
                     user.getId(),
                     request.getParameter("title"),

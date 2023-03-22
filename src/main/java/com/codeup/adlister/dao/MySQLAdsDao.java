@@ -2,7 +2,6 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,9 +73,7 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving the ad.", e);
         }
-
     }
-
 
     @Override
     public int deleteAd(Long id) {
@@ -86,13 +83,10 @@ public class MySQLAdsDao implements Ads {
             System.out.println(stmt);
             int rowsDeleted = stmt.executeUpdate();
             return rowsDeleted;
-
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting the ad.", e);
         }
-
     }
-
 
     @Override
     public Long insert(Ad ad) {
@@ -111,7 +105,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
     @Override
     public Long edit(Ad ad) {
         try {
@@ -129,9 +122,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
     private static Ad extractAd(ResultSet rs) throws SQLException {
-
         return new Ad(
             rs.getLong("id"),
             rs.getLong("user_id"),

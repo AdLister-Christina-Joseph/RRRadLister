@@ -3,7 +3,6 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-
 
 @WebServlet(name = "controllers.EditAdServlet", urlPatterns = "/ads/edit")
 public class EditAdServlet extends HttpServlet {
@@ -42,16 +40,12 @@ public class EditAdServlet extends HttpServlet {
             session.setAttribute("error", show);
         }
 
-
         String description = ad.getDescription();
         if (session.getAttribute("description") == "") {
             request.getSession().setAttribute("description", "");
         } else {
             request.getSession().setAttribute("description", description);
         }
-
-
-
 
         request.getRequestDispatcher("/WEB-INF/ads/edit.jsp")
                 .forward(request, response);
@@ -74,7 +68,6 @@ public class EditAdServlet extends HttpServlet {
         Long UserId = user.getId();
         String title = request.getParameter("title");
         String description = request.getParameter("description");
-
 
         boolean inputHasErrors = title.isEmpty()
                 || description.isEmpty();
@@ -109,15 +102,12 @@ public class EditAdServlet extends HttpServlet {
             session.removeAttribute("title");
             session.setAttribute("title", tempTitle);
 
-
             String tempDescription = request.getParameter("description");
             session.removeAttribute("description");
             session.setAttribute("description", tempDescription);
 
             response.sendRedirect("/ads/edit?id=" + id);
-
         } else {
-
             Ad ad = new Ad(
                     id,
                     UserId,
@@ -127,10 +117,5 @@ public class EditAdServlet extends HttpServlet {
             DaoFactory.getAdsDao().edit(ad);
             response.sendRedirect("/profile");
         }
-
-
     }
-
-
-
 }
