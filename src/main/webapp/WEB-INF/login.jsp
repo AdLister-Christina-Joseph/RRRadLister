@@ -14,11 +14,11 @@
     <form action="/login" method="POST">
         <div class="form-group">
             <label for="username">Username</label>
-            <input id="username" name="username" class="form-control" type="text" value="Bus">
+            <input id="username" name="username" class="form-control" type="text" value="Tiggg">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input id="password" name="password" class="form-control" type="password" value="passwordz">
+            <input id="password" name="password" class="form-control" type="password" value="1234">
         </div>
         <input type="submit" class="btn btn-success btn-block mt-2" value="Log In"> <a href="/register"
                                                                                        style="color:white;">

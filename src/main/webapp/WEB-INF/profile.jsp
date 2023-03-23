@@ -68,7 +68,7 @@
         <ul class="list-group list-group-flush bg-dark">
             <c:forEach var="adsByUser" items="${adsByUser}">
                 <li class="list-group-item bg-dark" style="text-align:left;">
-                    <p><a href="/ads/edit?id=${adsByUser.id}"><i class="fa-solid fa-pencil"></i></a> <a
+                    <p style="text-align:right;"><a href="/ads/edit?id=${adsByUser.id}"><i class="fa-solid fa-pencil"></i></a> <a
                             href="/delete?id=${adsByUser.id}"><i class="fa-solid fa-circle-xmark"></i></a></p>
                     <h2><i class="fa-solid fa-recycle"></i> ${adsByUser.title}</h2>
                     <p style="text-align:left;">${adsByUser.description}</p>
